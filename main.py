@@ -13,11 +13,13 @@ q_titles = len(titles)
 img_scraper(keyword, q_titles)
 for id, title in enumerate(titles):
     img_urls = img_list()
-    article = img_insert(article_generator(title), img_urls)
-
+    art = article_generator(title)
     # Paraphraser model "ramsrigouthamg/t5_sentence_paraphraser" working only with English language
     if language.lower() == 'english':
-        article = content_paraphraser(article)
+        # print(f"Orginal:\n{art}")
+        art = content_paraphraser(art)
+        # print(f"Paraphrased:\n{art}")
+    article = img_insert(art, img_urls)
     #
     article_poster(title, article)
     print(f"Post {id+1} of {q_titles} done!")
