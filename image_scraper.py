@@ -106,7 +106,7 @@ def img_list():
 
 def img_insert(article, img_urls):
     import random
-    big_list = list(filter(lambda x: x != '', article.split('\n\n')))
+    big_list = list(filter(lambda x: x != '', article.split('\n')))
     # Step 1: Generate a random number between 2 and 4 (inclusive)
     para_count = len(big_list)
     counter = len(img_urls)
