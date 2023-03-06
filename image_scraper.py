@@ -67,7 +67,7 @@ def img_scraper(keyword, img_numbers):
         downloaded_num = len(os.listdir(os.path.join(output_dir)))
         max_num -= downloaded_num
 
-    print("Images scraping done")
+    print(f"Images scraping done. {downloaded_num} images downloaded!")
 
 
 def img_uploader(filePath):
