@@ -27,7 +27,7 @@ def open_ai(text):
 
 
 def topic_list(keyword):
-    topics_list = open_ai(f"Generate a 4 people-also-ask for \"{keyword}\" as a comma separated list without any serial numbers").replace("\n",'').split(',')
+    topics_list = open_ai(f"Generate a 10 people-also-ask for \"{keyword}\" as a comma separated list without any serial numbers").replace("\n",'').split(',')
     for i, t in enumerate(topics_list):
         print(f'{i+1}. {t.strip()} in {keyword}')
 
@@ -39,7 +39,7 @@ def topic_list(keyword):
         question_list.extend(open_ai(
             # f"a list questions around the topic {f'{topic.strip()} in {kw}'} as a comma separated list without
             # serial numbers").replace( "\n", '').split(','))
-            f"Generate 4 people-also-ask around the topic {f'{topic.strip()} in {keyword}'} as a comma separated list "
+            f"Generate 5 people-also-ask around the topic {f'{topic.strip()} in {keyword}'} as a comma separated list "
             f"without serial numbers. Language {language}").replace(
             "\n", '').split(','))
     q_list = []
