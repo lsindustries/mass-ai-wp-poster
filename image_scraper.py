@@ -110,7 +110,6 @@ def img_insert(article, img_urls):
     # Step 1: Generate a random number between 2 and 4 (inclusive)
     para_count = len(big_list)
     counter = len(img_urls)
-    print(f"OBRAZKI DO WSTAWIENIA {counter}")
     if para_count < counter:
         counter = para_count
     # Split the list into for parts to insert image
