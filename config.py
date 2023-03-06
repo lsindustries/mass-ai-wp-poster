@@ -1,12 +1,12 @@
 
 # Post language
-language = "polish"
+language = "english"
 
 # Temp images folder
 path = "images"
 
 # WordPress
-DOMAIN = ""
+DOMAIN = "" # example: http://www.somewebsite.com (without: "/" at the end)
 AUTH_USER = 'Admin'
 AUTH_PASSWORD = ''
 
