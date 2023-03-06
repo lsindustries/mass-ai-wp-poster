@@ -81,9 +81,8 @@ def article_poster(title, article):
 
     r = requests.post(url=DOMAIN + '/wp-json/wp/v2/posts', data=data, headers=HEADERS, auth=(AUTH_USER, AUTH_PASSWORD))
     print("POST SENDING STATUS: " + str(r))
-    response = r.json().get('id')
     try:
-        link = response.get('guid').get("rendered")
+        link = r.json().get('guid').get("rendered")
         print(f"URL: {link}")
     except:
         print("Error with sending Post")
