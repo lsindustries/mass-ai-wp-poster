@@ -27,11 +27,12 @@ def open_ai(text):
 
 
 def topic_list(keyword):
-    topics_list = open_ai(f"Generate a 5 people-also-ask for \"{keyword}\" as a comma separated list without any serial numbers").replace("\n",'').split(',')
+    topics_list = open_ai(f"Generate a 10 people-also-ask for \"{keyword}\" as a comma separated list without any serial numbers").replace("\n",'').split(',')
     for i, t in enumerate(topics_list):
         print(f'{i+1}. {t.strip()} in {keyword}')
 
     question_list = []
+    print("Generating more potential titles...")
     for topic in topics_list:
         # print(f'Pulling questions for {topic.strip()}')
         sleep(1)
