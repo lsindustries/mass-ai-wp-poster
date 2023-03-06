@@ -84,6 +84,6 @@ def article_poster(title, article):
     try:
         link = r.json().get('guid').get("rendered")
         print(f"URL: {link}")
-    except as e:
+    except Exception as e:
         print(f"Error with sending Post: {e}")
 
