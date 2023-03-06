@@ -6,7 +6,7 @@ from time import sleep
 
 
 img_dir_cleaner()
-keyword = input('Keyword for content creator (example: \'pozycjonowanie stron\'): ')
+keyword = input('Keyword for content creator (example: \'seo\'): ')
 titles = topic_list(keyword)
 
 q_titles = len(titles)
