@@ -71,7 +71,8 @@ def img_scraper(keyword, img_numbers):
 
 
 def img_uploader(filePath):
-    data = open(path + "/" + filePath, 'rb').read()
+    with open(path + "/" + filePath, 'rb') as file:
+        data = file.read()
 
     res = requests.post(url=f'{DOMAIN}/wp-json/wp/v2/media',
                         data=data,
@@ -82,8 +83,9 @@ def img_uploader(filePath):
     new_dict = res.json()
     new_id = new_dict.get('id')
     link = new_dict.get('guid').get("rendered")
-    print(new_id, link)
+    #print(new_id, link)
     # return new_id, link
+    os.remove(path + "/" + filePath)
     return link
 
 
@@ -101,13 +103,13 @@ def img_list():
     return img_urls
 
 
-def img_insert(article, img_list):
+def img_insert(article, img_urls):
     import random
     big_list = list(filter(lambda x: x != '', article.split('\n\n')))
     # Step 1: Generate a random number between 2 and 4 (inclusive)
     para_count = len(big_list)
     print(para_count)
-    counter = len(img_list)
+    counter = len(img_urls)
     if para_count < counter:
         counter = para_count
     # Split the list into for parts to insert image
@@ -115,9 +117,9 @@ def img_insert(article, img_list):
                   range(0, para_count, (para_count // counter))]
 
     for b, i in enumerate(list_parts):
-        for a, j in enumerate(img_list):
+        for a, j in enumerate(img_urls):
             if b == a:
-                i.append(j)
+                i.append(f'<img src="{j}">')
 
     new_article = ""
     for i in list_parts:
