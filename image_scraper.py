@@ -93,7 +93,7 @@ def img_list():
     # Get list of all image files in the directory
     files = [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f)) and f.endswith('.jpg')]
     # Select random images from the list of files
-    q_img = random.randint(2, 4)
+    q_img = random.randint(1, 3)
     random_images = random.sample(files, q_img)
 
     img_urls = []
@@ -108,7 +108,6 @@ def img_insert(article, img_urls):
     big_list = list(filter(lambda x: x != '', article.split('\n\n')))
     # Step 1: Generate a random number between 2 and 4 (inclusive)
     para_count = len(big_list)
-    print(para_count)
     counter = len(img_urls)
     if para_count < counter:
         counter = para_count

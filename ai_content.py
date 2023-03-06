@@ -1,7 +1,10 @@
 import openai
 from time import sleep
 from sys import exit
-from config import language, API_KEY
+
+import requests
+
+from config import language, API_KEY, DOMAIN, AUTH_USER, AUTH_PASSWORD, HEADERS
 
 openai.api_key = API_KEY
 
@@ -25,8 +28,8 @@ def open_ai(text):
 
 def topic_list(keyword):
     topics_list = open_ai(f"Generate a 5 people-also-ask for \"{keyword}\" as a comma separated list without any serial numbers").replace("\n",'').split(',')
-    # for i, t in enumerate(topics_list):
-    #    print(f'{i+1}. {t.strip()} in {keyword}')
+    for i, t in enumerate(topics_list):
+        print(f'{i+1}. {t.strip()} in {keyword}')
 
     question_list = []
     for topic in topics_list:
@@ -62,8 +65,26 @@ def topic_list(keyword):
 
 
 def article_generator(title):
-    return open_ai(f'a detailed essay on "{title}". Language {language}')
+    article = open_ai(f'a detailed essay on "{title}". Language {language}')
+    print(f'Article "{title} created! {len(article.split())} words in text!')
+    return article
 
 
+def article_poster(title, article):
+    data = {
+        "title": title,
+        "content": article,
+        "status": "publish",
+        # "status": "pending",
+        "author": "1",
+    }
 
+    r = requests.post(url=DOMAIN + '/wp-json/wp/v2/posts', data=data, headers=HEADERS, auth=(AUTH_USER, AUTH_PASSWORD))
+    print("POST SENDING STATUS: " + str(r))
+    response = r.json().get('id')
+    try:
+        link = response.get('guid').get("rendered")
+        print(f"URL: {link}")
+    except:
+        print("Error with sending Post")
 
