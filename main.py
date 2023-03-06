@@ -22,4 +22,5 @@ for id, title in enumerate(titles):
     article_poster(title, article)
     print(f"Post {id+1} of {q_titles} done!")
     print("Waiting 10 seconds...")
+    print()
     sleep(10)
