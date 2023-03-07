@@ -1,5 +1,5 @@
 ﻿# MASS AI WordPress Poster
-This Python application can generate around 50 unique articles from a single keyword. The program utilizes a pre-trained model to paraphrase the articles and avoid detection by AI detectors. Additionally, the tool scrapes relevant images from Bing and inserts them into the articles before publishing them to a WordPress server.
+This Python application can generate around 50 unique articles from a single keyword. The program utilizes a pre-trained model to paraphrase the articles and avoid detection by AI detectors. Additionally, the tool scrapes relevant images from Bing and inserts them into the articles before publishing them to a WordPress Website.
 This is the perfect tool for creating auto-blogs
 
 ### Examples of generated articles
