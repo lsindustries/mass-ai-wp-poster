@@ -5,6 +5,7 @@ This is the perfect tool for creating auto-blogs
 ### Examples of generated articles
 You can find sample articles at www.seomarketing.ct8.pl
 ```
+https://www.seomarketing.ct8.pl/how-much-do-youtubers-earn-per-view-a-look-at-the-economics-of-youtube/
 https://www.seomarketing.ct8.pl/jakie-sa-korzysci-z-seo-optymalizacji/
 https://www.seomarketing.ct8.pl/5-zalet-seo-ktorych-nie-mozesz-przegapic/
 
